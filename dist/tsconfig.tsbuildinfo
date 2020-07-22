@@ -196,9 +196,44 @@
         "signature": "cd6efb9467a8b6338ece2e2855e37765700f2cd061ca54b01b33878cf5c7677e",
         "affectsGlobalScope": true
       },
-      "../src/lib/CharUnicodeInfoData.ts": {
-        "version": "63a6d3dd42b9164141d76fd01106ad520a03f9ac0f721c9e0c0e82a532ebc76e",
-        "signature": "d6202415b83fc2615183ebc23f7b990a7d1a2d4c346f91d7fe7b20de92d48198",
+      "../src/lib/CharUnicodeInfo/CasingDataLevel1.ts": {
+        "version": "f4ff69b688b0d34f8f4ee8a7f2dafe5dfa3094400d9bbac15f83d9ee3bf2a606",
+        "signature": "0745cc9e4a13ac2b6d5aee0409a9d4392d2b5075050b6df4252c08e5e78e58c3",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/CasingDataLevel2.ts": {
+        "version": "52d4e8118bf2c613ae56f5a0ad3bffe43a0a50f2d69c0202b6c76d9af5d76339",
+        "signature": "5cc337a1bea738d6d4629106e551699d379dc946065bff67d251b3b181b2fdf4",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/CasingDataLevel3.ts": {
+        "version": "982bd4c2434f098a4b4518e0c2a2174587a23d1722e65dc5f5c18b5a5576c9f4",
+        "signature": "03a9c6f7c33ede990174f3883c2f205b453529d80cfd4225f166f37bc0022cbe",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/CategoriesValues.ts": {
+        "version": "d7d99f38ea5db39b1789f84e1b22e86aea6af959235922810b251cb3f12c4033",
+        "signature": "9e62762f4d40f0aa9a2c33244037509e69dd79230ccdb258260f3d95c61fed95",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel1.ts": {
+        "version": "7be5ff4c127771bb5461916f0d6c258c749987ddf047fe9665d8c0e8595d6fab",
+        "signature": "c185978a36841ed2258b890d72e50021082a9570ebaf913269df4d7da5ce3c4e",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel2.ts": {
+        "version": "7b5016ddbfbc10a8c93faede92d471d32206973cb3a6405b072b9f9b293a76e1",
+        "signature": "cfee9d8c83bcede931f2dc56bd746cd6a59eb9848f6e8459ef683bff2bd65c2c",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel3.ts": {
+        "version": "1b5a68d207fefea619b650d85e418e571601dbe5c13b4ad976ca931e5d1de137",
+        "signature": "9ee50bd44593b28fb331c645fd985083129c16b89ed072722b4890fc114b5fa2",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/NumericValues.ts": {
+        "version": "bd6d8f74e150f9e3a41dbcff152d541a8fe8546d2f74f6899fe0b21f380084ce",
+        "signature": "15bf3254801badd09ce2ba41343fc61a15f6e612bb050b62eeb6b54b12d379df",
         "affectsGlobalScope": false
       },
       "../src/lib/UnicodeCategory.ts": {
@@ -207,18 +242,23 @@
         "affectsGlobalScope": false
       },
       "../src/lib/CharUnicodeInfo.ts": {
-        "version": "080b8274fe5a094341fe36f48c958fbae9ac802f3ef4f3a15f6bca0bafb69e37",
+        "version": "6c3a41c9411a37fe71bf12cc45d899fc84a627ddeadc106c1a81144a19848afe",
         "signature": "210ac324bf64b41a3292faf9093adb333985905f68755f5eb4e4809de324eabe",
         "affectsGlobalScope": false
       },
       "../src/lib/Char.ts": {
-        "version": "93e94388d6a9e6b416ba3bb30ad7ec2b4888e2bca30819b6ca89351ebc7d160c",
+        "version": "dcb6ac440376893fdbbcb1eaa56ce156f84aceedb7ef505d02dace19f86d3891",
         "signature": "96f4c15986a6053bb6b8a48882f86f71146cd6c612e2c61d77d05cbf5a5b7b3e",
         "affectsGlobalScope": false
       },
       "../src/index.ts": {
         "version": "5df7418c5d4feed3d1f4008b3c8241c11e44198a3105170bcc246281daa1c7ce",
         "signature": "db90a31d6541fd48b51dd7049bfff883ae0a24b4fe95955696898542ef24bc9a",
+        "affectsGlobalScope": false
+      },
+      "../src/lib/CharUnicodeInfo/DigitValues.ts": {
+        "version": "64e153f0723fffa24f1d84e90982c2f79a51716207ca77669a25f203d99ab98b",
+        "signature": "3709c6103a5aac8aee0c686df078c25108b57de5626225555fc53cb6f1c2a00d",
         "affectsGlobalScope": false
       },
       "../node_modules/@babel/types/lib/index.d.ts": {
@@ -1884,10 +1924,89 @@
         "../node_modules/@types/node/ts3.2/process.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts",
         "../node_modules/@types/node/util.d.ts",
-        "../src/lib/CharUnicodeInfoData.ts",
+        "../src/lib/CharUnicodeInfo/CasingDataLevel1.ts",
+        "../src/lib/CharUnicodeInfo/CasingDataLevel2.ts",
+        "../src/lib/CharUnicodeInfo/CasingDataLevel3.ts",
+        "../src/lib/CharUnicodeInfo/CategoriesValues.ts",
+        "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel1.ts",
+        "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel2.ts",
+        "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel3.ts",
+        "../src/lib/CharUnicodeInfo/NumericValues.ts",
         "../src/lib/UnicodeCategory.ts"
       ],
-      "../src/lib/CharUnicodeInfoData.ts": [
+      "../src/lib/CharUnicodeInfo/CasingDataLevel1.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/CasingDataLevel2.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/CasingDataLevel3.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/CategoriesValues.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/DigitValues.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel1.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel2.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel3.ts": [
+        "../node_modules/@types/graceful-fs/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/process.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/process.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../src/lib/CharUnicodeInfo/NumericValues.ts": [
         "../node_modules/@types/graceful-fs/index.d.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/process.d.ts",
@@ -3242,7 +3361,15 @@
       "../src/index.ts",
       "../src/lib/Char.ts",
       "../src/lib/CharUnicodeInfo.ts",
-      "../src/lib/CharUnicodeInfoData.ts",
+      "../src/lib/CharUnicodeInfo/CasingDataLevel1.ts",
+      "../src/lib/CharUnicodeInfo/CasingDataLevel2.ts",
+      "../src/lib/CharUnicodeInfo/CasingDataLevel3.ts",
+      "../src/lib/CharUnicodeInfo/CategoriesValues.ts",
+      "../src/lib/CharUnicodeInfo/DigitValues.ts",
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel1.ts",
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel2.ts",
+      "../src/lib/CharUnicodeInfo/NumericGrapheneDataLevel3.ts",
+      "../src/lib/CharUnicodeInfo/NumericValues.ts",
       "../src/lib/UnicodeCategory.ts"
     ]
   },

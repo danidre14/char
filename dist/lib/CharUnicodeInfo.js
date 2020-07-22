@@ -4,7 +4,14 @@
 // https://github.com/dotnet/runtime/blob/master/src/libraries/System.Private.CoreLib/src/System/Globalization/CharUnicodeInfo.cs
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getNumericValue = exports.getIsWhiteSpace = exports.getUnicodeCategory = exports.kHighSurrogateRange = exports.kLowSurrogateEnd = exports.kLowSurrogateStart = exports.kHighSurrogateEnd = exports.kHighSurrogateStart = void 0;
-const CharUnicodeInfoData_1 = require("./CharUnicodeInfoData");
+const CasingDataLevel1_1 = require("./CharUnicodeInfo/CasingDataLevel1");
+const CasingDataLevel2_1 = require("./CharUnicodeInfo/CasingDataLevel2");
+const CasingDataLevel3_1 = require("./CharUnicodeInfo/CasingDataLevel3");
+const CategoriesValues_1 = require("./CharUnicodeInfo/CategoriesValues");
+const NumericGrapheneDataLevel1_1 = require("./CharUnicodeInfo/NumericGrapheneDataLevel1");
+const NumericGrapheneDataLevel2_1 = require("./CharUnicodeInfo/NumericGrapheneDataLevel2");
+const NumericGrapheneDataLevel3_1 = require("./CharUnicodeInfo/NumericGrapheneDataLevel3");
+const NumericValues_1 = require("./CharUnicodeInfo/NumericValues");
 exports.kHighSurrogateStart = 0xd800;
 exports.kHighSurrogateEnd = 0xdbff;
 exports.kLowSurrogateStart = 0xdc00;
@@ -17,7 +24,7 @@ exports.getUnicodeCategory = getUnicodeCategory;
 function getUnicodeCategoryNoBoundsChecks(code) {
     const offset = getCategoryCasingTableOffsetNoBoundsChecks(code);
     // Each entry of the 'CategoriesValues' table uses the low 5 bits to store the UnicodeCategory information.
-    return CharUnicodeInfoData_1.categoriesValues[offset] & 0x1f;
+    return CategoriesValues_1.categoriesValues[offset] & 0x1f;
 }
 /**
  * Retrieves the offset into the "CategoryCasing" arrays where this code point's
@@ -26,14 +33,14 @@ function getUnicodeCategoryNoBoundsChecks(code) {
  */
 function getCategoryCasingTableOffsetNoBoundsChecks(code) {
     // Get the level index item from the high 11 bits of the code point.
-    let index = CharUnicodeInfoData_1.categoryCasingLevel2Index[code >> 9];
+    let index = CasingDataLevel1_1.categoryCasingLevel1Index[code >> 9];
     // Get the level 2 WORD offset from the next 5 bits of the code point.
     // This provides the base offset of the level 3 table.
     // Note that & has lower precedence than +, so remember the parens.
-    index = CharUnicodeInfoData_1.categoryCasingLevel2Index[(index << 6) + ((code >> 3) & 62)];
+    index = CasingDataLevel2_1.categoryCasingLevel2Index[(index << 6) + ((code >> 3) & 62)];
     // Get the result from the low 4 bits of the code point.
     // This is the offset into the values table where the data is stored.
-    return CharUnicodeInfoData_1.categoryCasingLevel2Index[(index << 4) + (code & 0x0f)];
+    return CasingDataLevel3_1.categoryCasingLevel3Index[(index << 4) + (code & 0x0f)];
 }
 /**
  * Data derived from https://unicode.org/reports/tr44/#White_Space. Represents whether a code point
@@ -42,7 +49,7 @@ function getCategoryCasingTableOffsetNoBoundsChecks(code) {
 function getIsWhiteSpace(code) {
     const offset = getCategoryCasingTableOffsetNoBoundsChecks(code);
     // High bit of each value in the 'CategoriesValues' array denotes whether this code point is white space.
-    return CharUnicodeInfoData_1.categoriesValues[offset] < 0;
+    return CategoriesValues_1.categoriesValues[offset] < 0;
 }
 exports.getIsWhiteSpace = getIsWhiteSpace;
 /**
@@ -56,17 +63,17 @@ function getNumericValue(code) {
 exports.getNumericValue = getNumericValue;
 function getNumericValueNoBoundsCheck(code) {
     const offset = getNumericGraphemeTableOffsetNoBoundsChecks(code);
-    return CharUnicodeInfoData_1.numericValues[offset * 8];
+    return NumericValues_1.numericValues[offset * 8];
 }
 function getNumericGraphemeTableOffsetNoBoundsChecks(code) {
     // Get the level index item from the high 11 bits of the code point.
-    let index = CharUnicodeInfoData_1.numericGraphemeLevel1Index[code >> 9];
+    let index = NumericGrapheneDataLevel1_1.numericGraphemeLevel1Index[code >> 9];
     // Get the level 2 WORD offset from the next 5 bits of the code point.
     // This provides the base offset of the level 3 table.
     // Note that & has lower precedence than +, so remember the parens.
-    index = CharUnicodeInfoData_1.numericGraphemeLevel2Index[(index << 6) + ((code >> 3) & 62)];
+    index = NumericGrapheneDataLevel2_1.numericGraphemeLevel2Index[(index << 6) + ((code >> 3) & 62)];
     // Get the result from the low 4 bits of the code point.
     // This is the offset into the values table where the data is stored.
-    return CharUnicodeInfoData_1.numericGraphemeLevel3Index[(index << 4) + (code & 0x0f)];
+    return NumericGrapheneDataLevel3_1.numericGraphemeLevel3Index[(index << 4) + (code & 0x0f)];
 }
 //# sourceMappingURL=CharUnicodeInfo.js.map
