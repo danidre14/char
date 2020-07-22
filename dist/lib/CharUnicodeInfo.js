@@ -4,10 +4,10 @@
 // https://github.com/dotnet/runtime/blob/master/src/libraries/System.Private.CoreLib/src/System/Globalization/CharUnicodeInfo.cs
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getNumericValue = exports.getIsWhiteSpace = exports.getUnicodeCategory = exports.kHighSurrogateRange = exports.kLowSurrogateEnd = exports.kLowSurrogateStart = exports.kHighSurrogateEnd = exports.kHighSurrogateStart = void 0;
-const CasingDataLevel1_1 = require("./CharUnicodeInfo/CasingDataLevel1");
-const CasingDataLevel2_1 = require("./CharUnicodeInfo/CasingDataLevel2");
-const CasingDataLevel3_1 = require("./CharUnicodeInfo/CasingDataLevel3");
 const CategoriesValues_1 = require("./CharUnicodeInfo/CategoriesValues");
+const CategoryCasingDataLevel1_1 = require("./CharUnicodeInfo/CategoryCasingDataLevel1");
+const CategoryCasingDataLevel2_1 = require("./CharUnicodeInfo/CategoryCasingDataLevel2");
+const CategoryCasingDataLevel3_1 = require("./CharUnicodeInfo/CategoryCasingDataLevel3");
 const NumericGrapheneDataLevel1_1 = require("./CharUnicodeInfo/NumericGrapheneDataLevel1");
 const NumericGrapheneDataLevel2_1 = require("./CharUnicodeInfo/NumericGrapheneDataLevel2");
 const NumericGrapheneDataLevel3_1 = require("./CharUnicodeInfo/NumericGrapheneDataLevel3");
@@ -33,14 +33,14 @@ function getUnicodeCategoryNoBoundsChecks(code) {
  */
 function getCategoryCasingTableOffsetNoBoundsChecks(code) {
     // Get the level index item from the high 11 bits of the code point.
-    let index = CasingDataLevel1_1.categoryCasingLevel1Index[code >> 9];
+    let index = CategoryCasingDataLevel1_1.categoryCasingLevel1Index[code >> 9];
     // Get the level 2 WORD offset from the next 5 bits of the code point.
     // This provides the base offset of the level 3 table.
     // Note that & has lower precedence than +, so remember the parens.
-    index = CasingDataLevel2_1.categoryCasingLevel2Index[(index << 6) + ((code >> 3) & 62)];
+    index = CategoryCasingDataLevel2_1.categoryCasingLevel2Index[(index << 6) + ((code >> 3) & 62)];
     // Get the result from the low 4 bits of the code point.
     // This is the offset into the values table where the data is stored.
-    return CasingDataLevel3_1.categoryCasingLevel3Index[(index << 4) + (code & 0x0f)];
+    return CategoryCasingDataLevel3_1.categoryCasingLevel3Index[(index << 4) + (code & 0x0f)];
 }
 /**
  * Data derived from https://unicode.org/reports/tr44/#White_Space. Represents whether a code point

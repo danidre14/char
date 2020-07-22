@@ -1,2 +1,2 @@
 export declare const categoryCasingLevel3Index: readonly number[];
-//# sourceMappingURL=CasingDataLevel3.d.ts.map
+//# sourceMappingURL=CategoryCasingDataLevel3.d.ts.map
