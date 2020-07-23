@@ -3,7 +3,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // https://github.com/dotnet/runtime/blob/master/src/libraries/System.Private.CoreLib/src/System/Char.cs
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isSurrogatePair = exports.isLowSurrogate = exports.isHighSurrogate = exports.getNumericValue = exports.getUnicodeCategory = exports.isSymbol = exports.isSurrogate = exports.isSeparator = exports.isControl = exports.isLetterOrDigit = exports.isPunctuation = exports.isLower = exports.isUpper = exports.isWhiteSpace = exports.isLetter = exports.isDigit = exports.getLatin1UnicodeCategory = exports.isAscii = exports.isLatin1 = exports.fromCode = exports.getCode = exports.kMinValue = exports.kMaxValue = void 0;
+exports.isSurrogatePair = exports.isLowSurrogate = exports.isHighSurrogate = exports.getNumericValue = exports.getUnicodeCategory = exports.isSymbol = exports.isSurrogate = exports.isSeparator = exports.isControl = exports.isLetterOrDigit = exports.isPunctuation = exports.isNumber = exports.isLower = exports.isUpper = exports.isWhiteSpace = exports.isLetter = exports.isDigit = exports.getLatin1UnicodeCategory = exports.isAscii = exports.isLatin1 = exports.fromCode = exports.getCode = exports.kMinValue = exports.kMaxValue = void 0;
 const CharUnicodeInfo = require("./CharUnicodeInfo");
 require("./UnicodeCategory");
 // The maximum character value.
@@ -104,7 +104,7 @@ function isDigit(code) {
 }
 exports.isDigit = isDigit;
 function isInRange(code, minimum, maximum) {
-    return code - minimum <= maximum - minimum;
+    return minimum <= code && code <= maximum;
 }
 function checkLetter(category) {
     return isInRange(category, 0 /* UppercaseLetter */, 4 /* OtherLetter */);
@@ -146,6 +146,19 @@ function isLower(code) {
     return CharUnicodeInfo.getUnicodeCategory(code) === 1 /* LowercaseLetter */;
 }
 exports.isLower = isLower;
+function checkNumber(category) {
+    return isInRange(category, 8 /* DecimalDigitNumber */, 10 /* OtherNumber */);
+}
+function isNumber(code) {
+    if (isLatin1(code)) {
+        if (isAscii(code)) {
+            return isInRange(code, asciiZeroCode, asciiNineCode);
+        }
+        return checkNumber(getLatin1UnicodeCategory(code));
+    }
+    return checkNumber(CharUnicodeInfo.getUnicodeCategory(code));
+}
+exports.isNumber = isNumber;
 function checkPunctuation(category) {
     return isInRange(category, 18 /* ConnectorPunctuation */, 24 /* OtherPunctuation */);
 }
@@ -228,9 +241,10 @@ function isSurrogatePair(highSurrogate, lowSurrogate) {
     // wide, and since this is a power of two, we can perform a single comparison
     // by baselining each value to the start of its respective range and taking
     // the logical OR of them.
-    const highSurrogateOffset = highSurrogate - CharUnicodeInfo.kHighSurrogateStart;
-    const lowSurrogateOffset = lowSurrogate - CharUnicodeInfo.kLowSurrogateStart;
-    return (highSurrogateOffset | lowSurrogateOffset) <= CharUnicodeInfo.kHighSurrogateRange;
+    const highSurrogateOffset = (highSurrogate - CharUnicodeInfo.kHighSurrogateStart) >>> 0;
+    const lowSurrogateOffset = (lowSurrogate - CharUnicodeInfo.kLowSurrogateStart) >>> 0;
+    const baseline = (highSurrogateOffset | lowSurrogateOffset) >>> 0;
+    return baseline <= CharUnicodeInfo.kHighSurrogateRange;
 }
 exports.isSurrogatePair = isSurrogatePair;
 //# sourceMappingURL=Char.js.map

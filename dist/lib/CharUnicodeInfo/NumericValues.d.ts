@@ -1,2 +1,3 @@
-export declare const numericValues: readonly number[];
+/// <reference types="node" />
+export declare const numericValues: Buffer;
 //# sourceMappingURL=NumericValues.d.ts.map

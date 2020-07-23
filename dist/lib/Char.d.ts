@@ -44,6 +44,7 @@ export declare function isWhiteSpace(code: number): boolean;
 export declare function isUpper(code: number): boolean;
 /** Determines whether a character is lower-case. */
 export declare function isLower(code: number): boolean;
+export declare function isNumber(code: number): boolean;
 /** Determines whether a character is a punctuation mark.  */
 export declare function isPunctuation(code: number): boolean;
 /** Determines whether a character is a letter or a digit. */
