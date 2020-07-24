@@ -1,3 +1,2 @@
-/// <reference types="node" />
-export declare const categoryCasingLevel2Index: Buffer;
+export declare const categoryCasingLevel2Index: Uint8Array;
 //# sourceMappingURL=CategoryCasingDataLevel2.d.ts.map

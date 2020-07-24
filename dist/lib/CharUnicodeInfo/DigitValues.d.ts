@@ -1,3 +1,2 @@
-/// <reference types="node" />
-export declare const digitValues: Buffer;
+export declare const digitValues: Uint8Array;
 //# sourceMappingURL=DigitValues.d.ts.map

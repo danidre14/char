@@ -1,3 +1,2 @@
-/// <reference types="node" />
-export declare const categoriesValues: Buffer;
+export declare const categoriesValues: Uint8Array;
 //# sourceMappingURL=CategoriesValues.d.ts.map
