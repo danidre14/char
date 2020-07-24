@@ -1,15 +1,5 @@
 import { UnicodeCategory } from './UnicodeCategory';
 /**
- * The maximum character value.
- * @since 1.0.0
- */
-export declare const kMaxValue = 65535;
-/**
- * The minimum character value.
- * @since 1.0.0
- */
-export declare const kMinValue = 0;
-/**
  * Returns the code point of a character.
  * @see fromCode
  * @since 1.0.0
@@ -65,7 +55,7 @@ export declare function isAscii(code: number): boolean;
  * @since 1.0.0
  * @param code The code point.
  */
-export declare function isDigit(code: number): boolean | undefined;
+export declare function isDigit(code: number): boolean;
 /**
  * Determines whether a character is a letter.
  * @since 1.0.0
