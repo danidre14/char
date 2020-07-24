@@ -1,3 +1,7 @@
+/**
+ * The unicode categories.
+ * @since 1.0.0
+ */
 export declare const enum UnicodeCategory {
     UppercaseLetter = 0,
     LowercaseLetter = 1,
